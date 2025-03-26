@@ -1,25 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RouterList from "./components/RouterList";
+import RouterInfo from "./components/RouterInfo";
+import EditRouterForm from "./components/EditRouterForm";
+import CreateRouterForm from "./components/CreateRouterForm";
+import { Box, ThemeProvider } from "@mui/material";
+import { theme } from "./styles/theme";
+import AppHeader from "./components/AppHeader";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <AppHeader />
+        <Box
+          id="main-container"
+          sx={{
+            display: "flex",
+            flex: 1,
+            minHeight: "100vh",
+            minWidth: "100vh",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<RouterList />} />
+              <Route path="/router/:id" element={<RouterInfo />} />
+              <Route path="/edit-router/:id" element={<EditRouterForm />} />
+              <Route path="/create-router/:id" element={<CreateRouterForm />} />
+            </Routes>
+          </BrowserRouter>
+        </Box>
+      </div>
+    </ThemeProvider>
   );
 }
 
