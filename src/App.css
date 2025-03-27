@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+#root {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+#map-container {
+  height: 300px;
+  width: 500px;
+  /* temporarily set the background color so we can tell where the map container is positioned */
+  background-color: lightgrey;
+}
+
+.router-row {
+  width: 100%;
+}
+
+ .router-row:nth-child(odd) { background: white; }
+ .router-row:nth-child(even) { background: #6fa5f758; }
+
+ .form-control {
+    width: 80%;
+    margin-left: 8px;
+ }

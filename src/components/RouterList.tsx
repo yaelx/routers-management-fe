@@ -133,13 +133,14 @@ const RouterList = () => {
           </select>
         </Box>
       </Box>
-      <List sx={{ width: "80%", bgcolor: "background.paper" }}>
+      <List sx={{ width: "90%", bgcolor: "background.paper" }}>
         {loading ? (
           <FakeRows />
         ) : (
           subRoutesList.map((router) => (
             <ListItem
               key={router.id}
+              className="router-row"
               alignItems="flex-start"
               secondaryAction={
                 <IconButton>
